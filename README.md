@@ -1,24 +1,28 @@
 # signald-with-tcp
 
-Based on signald/signald, but adds listening TCP port to connect to instead of UNIX-socket.
+Based on [signald/signald](https://gitlab.com/signald/signald), but adds listening TCP port to connect to instead of UNIX-socket.
 
-<h2>Installation</h2>
+## Installation
 
-Install from docker hub `cameo69/signald-with-tcp` or build yourself.
+Install from [docker hub](https://hub.docker.com/r/cameo69/signald-with-tcp) `cameo69/signald-with-tcp` or build yourself.
 
-<h2>Build</h2>
+## Build
 
 Build image:
-`docker build --force-rm --tag signald-with-tcp .`
+```
+docker build --force-rm --tag signald-with-tcp .
+```
 
 Run image:
-`docker run -it --rm -v $(pwd)/run:/signald -p 12345:12345 signald-with-tcp`
+```
+docker run -it --rm -v $(pwd)/run:/signald -p 12345:12345 signald-with-tcp
+```
 
-<h2>Motivation</h2>
+## Motivation
 
 1. Docker image signald/signald is equipped with a UNIX socket for communication which does not work for Docler on Mac OS.
-This is supported by this https://github.com/docker/for-mac/issues/483 issue.
+This is supported by this [issue #483](https://github.com/docker/for-mac/issues/483).
 <br/><br/>
 To use a signald container on Mac OS the TCP socket has been added.
 
-2. TCP sockets can be used directly from other docker containers, especially <a href="https://nodered.org/">Node-RED</a>.
+2. TCP sockets can be used directly from other docker containers, especially [Node-RED](https://nodered.org).
