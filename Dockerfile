@@ -7,4 +7,5 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY bootstrap.sh /etc/bootstrap.sh
-CMD ["/etc/bootstrap.sh"]
+ENTRYPOINT ["/etc/bootstrap.sh"]
+CMD [""]
