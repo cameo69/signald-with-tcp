@@ -1,4 +1,5 @@
-FROM signald/signald
+FROM signald/signald:latest
+USER root
 RUN apt-get update && \
     apt-get -y --no-install-recommends install \
     socat  && \
@@ -7,5 +8,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY bootstrap.sh /etc/bootstrap.sh
+USER signald
 ENTRYPOINT ["/etc/bootstrap.sh"]
 CMD [""]
